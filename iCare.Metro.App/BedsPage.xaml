@@ -1,0 +1,120 @@
+﻿<common:LayoutAwarePage
+    x:Name="pageRoot"
+    x:Class="iCare.Metro.App.BedsPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:iCare.Metro.App"
+    xmlns:common="using:iCare.Metro.App.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+
+        <!--
+            此页所显示的分组项的集合，绑定到完整
+            项列表的子集，因为无法虚拟化组中的项
+        -->
+        <CollectionViewSource
+            x:Name="bedsSource"
+            Source="{Binding Beds}"/>
+
+        <!-- TODO: 如果在 App.xaml 中声明了键 AppName，则删除此行-->
+        <x:String x:Key="AppName">我的应用程序</x:String>
+    </Page.Resources>
+
+    <!--
+        此网格用作定义以下两行的页的根面板:
+        * 第 0 行包含后退按钮和页标题
+        * 第 1 行包含页布局的其余部分
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}"   DataContext="{Binding Beds}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+     
+        <GridView
+            x:Name="itemGridView"
+            AutomationProperties.AutomationId="ItemGridView"
+            AutomationProperties.Name="Grouped Items"
+            Grid.RowSpan="2"
+            Padding="116,137,40,46"
+            ItemsSource="{Binding }"
+            ItemTemplate="{StaticResource Standard80ItemTemplate}"
+            SelectionMode="None"
+            IsSwipeEnabled="false"
+            IsItemClickEnabled="True"
+             >
+
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+            <GridView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid Margin="1,0,0,6">
+                                <Button
+                                    AutomationProperties.Name="Group Title"
+                                    
+                                    Style="{StaticResource TextPrimaryButtonStyle}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Title}" Margin="3,-7,10,10" Style="{StaticResource GroupHeaderTextStyle}" />
+                                        <TextBlock Text="{StaticResource ChevronGlyph}" FontFamily="Segoe UI Symbol" Margin="0,-7,0,10" Style="{StaticResource GroupHeaderTextStyle}"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                    <GroupStyle.Panel>
+                        <ItemsPanelTemplate>
+                            <VariableSizedWrapGrid Orientation="Vertical" Margin="0,0,80,0"/>
+                        </ItemsPanelTemplate>
+                    </GroupStyle.Panel>
+                </GroupStyle>
+            </GridView.GroupStyle>
+        </GridView>
+
+        <ListView
+            x:Name="bedItemListView"
+            AutomationProperties.AutomationId="BedsListView"
+            AutomationProperties.Name="Beds"
+            TabIndex="1"
+            Grid.Row="1"
+            Visibility="Collapsed"
+            
+            Margin="0,0,0,0"
+            Padding="10,0,0,60"
+            ItemsSource="{Binding}"       
+          
+            SelectionMode="None"
+            IsSwipeEnabled="false" Width="800" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="1" Height="506">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                        <TextBlock Text="{Binding BedNo}" Style="{StaticResource ItemTextStyle}" MaxHeight="40" FontSize="24" LineHeight="36" TextAlignment="Center" Margin="0,0,0,10" Padding="5" Foreground="#DEB95A5A"/>
+                        <TextBlock Text="{Binding Name}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" FontSize="18" LineHeight="24" Margin="0,0,0,10" Foreground="#DEB95A5A"/>
+                        <TextBlock Text="{Binding Age}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" FontSize="18" LineHeight="24" Margin="0,0,0,10" Padding="5" Foreground="#DEB95A5A"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <!-- 后退按钮和页标题-->
+        <Grid Style="{StaticResource TopBannerStyle}" Margin="0,0,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}" Margin="36,0" VerticalAlignment="Center"/>
+            <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Grid.Column="1" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}" VerticalAlignment="Center" Margin="0" FontSize="48"/>
+        </Grid>
+ 
+
+    </Grid>
+</common:LayoutAwarePage>
