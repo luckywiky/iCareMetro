@@ -105,6 +105,14 @@
       <Project>{ace7cb91-f3cb-43c0-8e5b-c03f3b91ccc2}</Project>
       <Name>iCare.Metro.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\iCare.Metro.Operation\iCare.Metro.Operation.csproj">
+      <Project>{e6ab29a0-adc0-47cf-8c22-fd023b0dbe08}</Project>
+      <Name>iCare.Metro.Operation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\iCare.Net\iCare.Net.csproj">
+      <Project>{d8cd3e74-8c63-47a7-b140-3636855c6282}</Project>
+      <Name>iCare.Net</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

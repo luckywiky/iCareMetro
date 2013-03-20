@@ -68,30 +68,39 @@ namespace LocalApi.Controllers
    
     public class CResult : Result
     {
-       
-        public string aaa
+
+        public List<ContentData> Data = new List<ContentData>();
+    }
+
+
+    public class ContentData
+    {
+        public string Title
         {
             get;
             set;
 
         }
+
+        public string Content
+        {
+            get;
+            set;
+        }
     }
     public class HomeController : ApiController
     {
         //
-        // GET: /Home/
-        [ActionName("login")]
-        public JsonResult Login()
-        {
-            return CreateJson(new { Data = new CResult() { aaa = "sss" } });
-        }
-
+      
 
         public ActionResult Index()
         {
-            Result r = new CResult();
-            string json = "{\"aaa\":\"as\",\"ReturnCode\":1,\"Msg\":null}";
-            r = r.DeSerialize(json);
+            CResult r = new CResult();
+            r.Data.Add(new ContentData { Title = "A1", Content = "B1" });
+            r.Data.Add(new ContentData { Title = "A2", Content = "B2" });
+            r.Data.Add(new ContentData { Title = "A3", Content = "B3" });
+            r.Data.Add(new ContentData { Title = "A4", Content = "B4" });
+           
             return new ContentResult() { Content = r.Serialize() };
         }
     }

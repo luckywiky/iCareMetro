@@ -37,6 +37,14 @@ namespace iCare.Metro.App
         /// 字典。首次访问页面时为 null。</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
+           
+            
+        }
+
+        protected override  void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+           
         }
 
         /// <summary>
@@ -52,6 +60,14 @@ namespace iCare.Metro.App
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private async void bt1_Click(object sender, RoutedEventArgs e)
+        {
+            iCare.Metro.Operation.CourseApi capi = new Operation.CourseApi();
+            iCare.Metro.Model.Result r = await capi.Get("");
+            Windows.UI.Popups.MessageDialog dlg = new Windows.UI.Popups.MessageDialog(r.ReturnCode.ToString());
+            await dlg.ShowAsync();
         }
     }
 }

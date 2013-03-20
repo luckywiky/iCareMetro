@@ -30,7 +30,7 @@ namespace iCare.Net
         {
             handler = new HttpClientHandler { AutomaticDecompression = System.Net.DecompressionMethods.GZip };
             HttpClient client = new HttpClient(handler);
-            Uri uri = new Uri(string.Format("http://{0}/{1}{2}",host, request.Action, request.UrlSegments));
+            Uri uri = new Uri(string.Format("{0}/{1}{2}",host, request.Action, request.UrlSegments));
             HttpResponseMessage response ;
             if (request.Method == HttpMethod.Get)
             {
@@ -46,5 +46,7 @@ namespace iCare.Net
             string responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;
         }
+
+      
     }
 }

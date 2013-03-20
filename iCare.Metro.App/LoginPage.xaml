@@ -62,5 +62,6 @@
                 <Image Width="64" Height="64"  Source="Assets/arrow-right.png" />
             </Button>
         </Grid>
+        <Button x:Name="bt1" Content="Button" HorizontalAlignment="Left" Margin="386,80,0,0" Grid.Row="2" VerticalAlignment="Top" Background="#FFC34B4B" Click="bt1_Click"/>
     </Grid>
 </common:LayoutAwarePage>

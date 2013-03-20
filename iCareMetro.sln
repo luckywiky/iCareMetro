@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App1", "App1\App1.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalApi", "LocalApi\LocalApi.csproj", "{8D2AE1F1-D87A-4F69-8453-FA9F01648665}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication1", "ConsoleApplication1\ConsoleApplication1.csproj", "{406CC5C2-4DC1-4B9C-85DA-139338F0A811}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -157,6 +159,16 @@ Global
 		{8D2AE1F1-D87A-4F69-8453-FA9F01648665}.Release|ARM.ActiveCfg = Release|Any CPU
 		{8D2AE1F1-D87A-4F69-8453-FA9F01648665}.Release|x64.ActiveCfg = Release|Any CPU
 		{8D2AE1F1-D87A-4F69-8453-FA9F01648665}.Release|x86.ActiveCfg = Release|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Release|Any CPU.Build.0 = Release|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Release|ARM.ActiveCfg = Release|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Release|x64.ActiveCfg = Release|Any CPU
+		{406CC5C2-4DC1-4B9C-85DA-139338F0A811}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
