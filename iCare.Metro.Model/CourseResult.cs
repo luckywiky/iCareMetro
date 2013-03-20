@@ -1,23 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace iCare.Metro.Model
 {
-    
-    public class LoginResult : Result
+    public class CourseResult:Result
     {
-        
-        public string UserID
-        {
-            get;
-            set;
-        }
-        
-        public string UserName
+        public List<Course> Data
         {
             get;
             set;

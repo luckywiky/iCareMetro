@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace iCare.Metro.Model
 {
-    [DataContract]
+    
     public class BedResult : Result
     {
         public List<Bed> Beds

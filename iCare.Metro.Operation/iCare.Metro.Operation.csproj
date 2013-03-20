@@ -112,6 +112,8 @@
   <ItemGroup>
     <Compile Include="Account.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="CourseApi.cs" />
+    <Compile Include="IApi.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

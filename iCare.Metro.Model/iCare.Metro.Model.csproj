@@ -102,6 +102,8 @@
     <Compile Include="Bed.cs" />
     <Compile Include="BedDataSource.cs" />
     <Compile Include="BedResult.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="CourseResult.cs" />
     <Compile Include="LoginResult.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="User.cs" />
